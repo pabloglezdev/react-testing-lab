@@ -1,27 +1,21 @@
+// tsconfig.json
 {
     "compilerOptions": {
-        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-        "target": "ES2022",
-        "useDefineForClassFields": true,
-        "lib": ["ES2022", "DOM", "DOM.Iterable"],
-        "module": "ESNext",
-        "skipLibCheck": true,
-
-        /* Bundler mode */
-        "moduleResolution": "bundler",
-        "allowImportingTsExtensions": true,
-        "verbatimModuleSyntax": true,
-        "moduleDetection": "force",
-        "noEmit": true,
+        "target": "ESNext", // O una versión reciente de ECMAScript (Ej: ES2020)
+        "module": "ESNext", // O "NodeNext" si trabajas más puramente con Node.js en el backend
         "jsx": "react-jsx",
-
-        /* Linting */
         "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "erasableSyntaxOnly": true,
-        "noFallthroughCasesInSwitch": true,
-        "noUncheckedSideEffectImports": true
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "bundler", // Importante para Vite
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "paths": {
+            "@/*": ["./src/*"] // Si usas alias como `@/components`
+        }
     },
-    "include": ["src"]
+    "include": ["src", "vite.config.ts", "jest.config.ts"] // Asegúrate de incluir tus archivos de configuración
 }
