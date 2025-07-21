@@ -9,12 +9,18 @@ const jestConfig: JestConfigWithTsJest = {
         '^@/(.*)$': '<rootDir>/src/$1',
     },
     transform: {
-        '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest',
+        '^.+\\.(ts|tsx|js|jsx)$': [
+            'ts-jest',
+            {
+                tsconfig: '<rootDir>/tsconfig.app.json', // <--- Añade o confirma esta línea
+            },
+        ],
     },
     transformIgnorePatterns: [
         'node_modules/(?!.*(msw|react-modal|@your-scope)/)',
     ],
     // Otras configuraciones
+    testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.history/'],
 };
 
 export default jestConfig;
